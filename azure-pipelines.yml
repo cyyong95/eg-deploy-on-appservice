@@ -28,12 +28,8 @@ steps:
       publishWebProjects: true
       arguments: '--configuration $(buildConfiguration) -o $(Build.ArtifactStagingDirectory)'
     
-  - task: ArchiveFiles@2
-    inputs:
-      rootFolderOrFile: '$(Build.ArtifactStagingDirectory)'
-      includeRootFolder: true
-      archiveType: 'zip'
-      archiveFile: 'BeginnerAppService'
-      replaceExistingArchive: true
+  - publish: '$(Build.ArtifactStagingDirectory)/BeginnerAppService'
+    artifact: webapp
+
     
   

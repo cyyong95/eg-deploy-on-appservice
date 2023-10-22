@@ -16,18 +16,10 @@ variables:
   value: './BeginnerAppService/BeginnerAppService.csproj'
 
 steps:
-  - task: DotNetCoreCLI@2
-    displayName: '[.NET] Restore project'
-    inputs:
-      command: 'restore'
-      projects: $(projectPath)
-
-  - task: DotNetCoreCLI@2
-    displayName: '[.NET] Build project'
-    inputs:
-      command: 'build'
-      projects: $(projectPath)
-      arguments: '--configuration $(buildConfiguration) --no-restore'
+  - template: template-build.yml
+    parameters:
+      buildConfiguration: $(buildConfiguration)
+      projectPath: $(projectPath)
 
   - task: DotNetCoreCLI@2
     displayName: '[.NET] Publish project'

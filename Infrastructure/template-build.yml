@@ -1,0 +1,19 @@
+parameters:
+  - name: buildConfiguration
+    default: 'Release'
+  - name: projectPath
+    default: '**/BeginnerAppService.csproj'
+
+steps:
+  - task: DotNetCoreCLI@2
+    displayName: '[.NET] Restore project'
+    inputs:
+      command: 'restore'
+      projects: ${{parameters.projectPath}}
+
+  - task: DotNetCoreCLI@2
+    displayName: '[.NET] Build project'
+    inputs:
+      command: 'build'
+      projects: ${{parameters.projectPath}}
+      arguments: '--configuration ${{parameters.buildConfiguration}} --no-restore'

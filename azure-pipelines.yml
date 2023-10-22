@@ -25,10 +25,12 @@ steps:
     displayName: '[.NET] Publish project'
     inputs:
       command: 'publish'
-      publishWebProjects: true
-      arguments: '--configuration $(buildConfiguration) -o $(Build.ArtifactStagingDirectory)'
-    
-  - publish: '$(Build.ArtifactStagingDirectory)/BeginnerAppService'
+      arguments: '--configuration $(buildConfiguration) -o $(Build.ArtifactStagingDirectory)/BeginnerAppService'
+      zipAfterPublish: true
+      publishWebProjects: false
+
+  - publish: '$(Build.ArtifactStagingDirectory)/BeginnerAppService.zip'
+    displayName: 'Publish artifact'
     artifact: webapp
 
     

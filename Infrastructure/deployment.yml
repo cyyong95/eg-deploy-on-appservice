@@ -1,7 +1,7 @@
 trigger:
   branches:
     include:
-      - './BeginnerAppService/*'
+      - 'BeginnerAppService/*'
 
 pool:
   vmImage: ubuntu-latest

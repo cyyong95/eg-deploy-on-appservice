@@ -33,7 +33,7 @@ steps:
       rootFolderOrFile: '$(Build.ArtifactStagingDirectory)/BeginnerAppService'
       includeRootFolder: true
       archiveType: 'zip'
-      archiveFile: '$(Build.ArtifactStagingDirectory)/BeginnerAppService.zip'
+      archiveFile: '$(Build.ArtifactStagingDirectory)/BeginnerAppService'
       replaceExistingArchive: true
     
   

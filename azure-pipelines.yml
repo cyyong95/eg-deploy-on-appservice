@@ -14,3 +14,10 @@ steps:
     inputs:
       command: 'restore'
       projects: './BeginnerAppService/BeginnerAppService.csproj'
+
+  - task: DotNetCoreCLI@2
+    displayName: '[.NET] Build project'
+    inputs:
+      command: 'build'
+      projects: './BeginnerAppService/BeginnerAppService.csproj'
+      arguments: '--configuration $(buildConfiguration) --no-restore'

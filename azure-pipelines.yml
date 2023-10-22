@@ -1,0 +1,17 @@
+trigger:
+- master
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+- name: buildConfiguration
+  value: 'Release'
+
+steps:
+  - task: DotNetCoreCLI@2
+    displayName: '[.NET] Restore project'
+    inputs:
+      command: 'restore'
+      projects: './BeginnerAppService/BeginnerAppService.csproj'
+      restoreArguments: '--configuration $(buildConfiguration)'

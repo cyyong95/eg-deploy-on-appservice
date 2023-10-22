@@ -30,7 +30,7 @@ steps:
       publishWebProjects: false
       zipAfterPublish: true
 
-  - publish: '$(Build.ArtifactStagingDirectory)/BeginnerAppService.zip'
+  - publish: '$(Build.ArtifactStagingDirectory)/BeginnerAppService/BeginnerAppService.zip'
     displayName: 'Publish artifact'
     artifact: webapp
 

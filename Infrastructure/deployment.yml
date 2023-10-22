@@ -13,19 +13,20 @@ steps:
     displayName: '[.NET] Restore project'
     inputs:
       command: 'restore'
-      projects: './BeginnerAppService/BeginnerAppService.csproj'
+      projects: '../BeginnerAppService/BeginnerAppService.csproj'
 
   - task: DotNetCoreCLI@2
     displayName: '[.NET] Build project'
     inputs:
       command: 'build'
-      projects: './BeginnerAppService/BeginnerAppService.csproj'
+      projects: '../BeginnerAppService/BeginnerAppService.csproj'
       arguments: '--configuration $(buildConfiguration) --no-restore'
+      
   - task: DotNetCoreCLI@2
     displayName: '[.NET] Publish project'
     inputs:
       command: 'publish'
-      projects: './BeginnerAppService/BeginnerAppService.csproj'
+      projects: '../BeginnerAppService/BeginnerAppService.csproj'
       arguments: '-c $(buildConfiguration) -o $(Build.ArtifactStagingDirectory)/BeginnerAppService'
       publishWebProjects: false
       zipAfterPublish: true

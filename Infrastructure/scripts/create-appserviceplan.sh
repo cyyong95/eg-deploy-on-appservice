@@ -12,4 +12,5 @@ az appservice plan create \
   --name $appServicePlanName \
   --location $location \
   --sku $skuType \
-  --tags 'key1=value1' 'key2=value2'
+  --is-linux \
+  --tags 'key1=value1' 'key2=value2' 'key3=value3'

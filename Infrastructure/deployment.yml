@@ -30,10 +30,6 @@ steps:
       publishWebProjects: false
       zipAfterPublish: true
 
-  - publish: '$(Build.ArtifactStagingDirectory)/BeginnerAppService/BeginnerAppService.zip'
-    displayName: 'Publish artifact'
-    artifact: webapp
-
   - task: AzureRmWebAppDeployment@4
     displayName: '[.NET] Deploy to App Service'
     inputs:

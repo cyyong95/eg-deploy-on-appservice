@@ -34,5 +34,14 @@ steps:
     displayName: 'Publish artifact'
     artifact: webapp
 
-    
+  - task: AzureRmWebAppDeployment@4
+    displayName: '[.NET] Deploy to App Service'
+    inputs:
+      ConnectionType: 'AzureRM'
+      azureSubscription: $(azureSubscription)
+      appType: 'webAppLinux'
+      WebAppName: 'dev01-beginnerapp'
+      packageForLinux: '$(Build.ArtifactStagingDirectory)/BeginnerAppService/BeginnerAppService.zip'
+      RuntimeStack: 'DOTNETCORE|7.0'
+      StartupCommand: 'dotnet BeginnerAppService.dll'
   
